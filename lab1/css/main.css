@@ -1,0 +1,14 @@
+.mainDv{
+    border: 1px solid #e9322d;
+    margin: 20px;
+    width: 50%;
+    font-size: 20px;
+}
+.mainDv a{
+    text-decoration: none;
+    color:#000000;
+
+}
+.mainDv a:hover{
+    color:#ff0000;
+}
