@@ -1,0 +1,16 @@
+.res,li{
+    background-color: #9acfea;
+}
+.res{
+    padding:10px;
+    display: inline;
+}
+li{
+    padding: 5px;
+    width:20px;
+    margin-bottom: 2px;
+}
+ul{
+    list-style-type: none;
+}
+
