@@ -7,7 +7,6 @@ class TextProcessing
 
     public function __construct($text)
     {
-
         $this->text = $text;
     }
 
@@ -16,17 +15,18 @@ class TextProcessing
         return explode('.', $this->text);
     }
 
-    public function countSentenses()
+    private function countSentenses()
     {
         $sentences = $this->getSentensesFromText();
         return "<span>Количество предложений в тексте:</span>" . (count($sentences) - 1) . "<br>";
     }
 
-    public function countWords()
+    private function countWords()
     {
         $wordCounts = 0;
-        foreach ($this->getSentensesFromText() as $key => $sent) {
-            if ($key == (count($this->getSentensesFromText()) - 1)) break;
+        $sentenses = $this->getSentensesFromText();
+        foreach ($sentenses as $key => $sent) {
+            if ($key == (count($sentenses) - 1)) break;
             $wordCounts += count(explode(" ", trim($sent)));
         }
         return "<span>Количество слов в текcте:</span>$wordCounts<br>";
