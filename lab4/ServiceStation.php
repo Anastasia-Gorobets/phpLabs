@@ -21,10 +21,4 @@ class ServiceStation
         return $this->address;
     }
 
-    public function showService()
-    {
-        return "Service name=" . $this->getName() . ", Service address=" . $this->getAddress() . "<br>";
-    }
-
-
 }
