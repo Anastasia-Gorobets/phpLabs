@@ -12,27 +12,18 @@ class CatalogTransport
 
     public function showCatalog()
     {
-
         if (empty($this->catalog))
             return false;
         $groupedCatalogs = [];
         foreach ($this->catalog as $catalog) {
             $groupedCatalogs[$catalog->getService()->getName()][] = $catalog;
         }
-        $this->catalog = $groupedCatalogs;
-
-        foreach ($this->catalog as $key => $val) {
+        foreach ($groupedCatalogs as $key => $val) {
             echo "<br><div class='service'>" . $key . "</div><br>";
             foreach ($val as $tr) {
                 echo "<div class='transport'>" . $tr->getName() . ", " . $tr->getType() . ", " . $tr->getWeight() . ", " . $tr->getCarcase() . ", " .
                     $tr->getEngine() . ", " . $tr->getChassis() . "</div><br>";
             }
         }
-
-
-
     }
-
-
-
 }
