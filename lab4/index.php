@@ -15,15 +15,21 @@ $labInfo=new LabInfo();
 $labInfo->printInfo(4,"Классы в языке PHP","02-13-2017","Транспортное средство, СТО, Каталог ТС (группировка по СТО)");
 $service1=new ServiceStation('Service1','Address1');
 $service2=new ServiceStation('Service2','Address2');
+$service3=new ServiceStation('Service3','Address3');
 $t1=new Transport("t1",'type1',100,'carcase1','engine1','chassis1',$service1);
 $t2=new Transport("t2",'type2',200,'carcase2','engine2','chassis2',$service1);
 $t3=new Transport("t3",'type3',300,'carcase3','engine3','chassis3',$service2);
+$t4=new Transport("t4",'type4',300,'carcase3','engine3','chassis3',$service3);
+$t5=new Transport("t5",'type4',300,'carcase3','engine3','chassis3',$service3);
 $catalog=new CatalogTransport();
 $catalog->addTransport($t1);
 $catalog->addTransport($t2);
 $catalog->addTransport($t3);
-$catalog->groupByService();
+$catalog->addTransport($t4);
 $catalog->showCatalog();
+$catalog->addTransport($t5);
+$catalog->showCatalog();
+
 ?>
 </body>
 </html>
