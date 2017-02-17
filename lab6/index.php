@@ -12,11 +12,11 @@ $labInfo=new LabInfo();
 $labInfo->printInfo(6,"Регулярні вирази","02-14-2017","Перевірити правильність email адреси для домену 
  otp.khpi.ua");
 $str1="test@otp.khpi.ua";
-$str2="test2@otp.khpi.ua";
+$str2="t.e.s t.2@otp.khpi.ua";
 $str3="@otp.kphi.ua";
 $str4="email4_@otp.khpi.ua";
 $str5="email_4.htrjhrk@otp.khpi.ua";
-$reg="/^[A-z0-9]+\.?[A-z0-9]+(@otp.khpi.ua)$/";
+$reg="/^([A-z0-9]+\.?)+[A-z0-9]+(@otp.khpi.ua)$/";
 $mat=[];
 $count1=preg_match_all($reg,$str1);
 $count2=preg_match_all($reg,$str2);
