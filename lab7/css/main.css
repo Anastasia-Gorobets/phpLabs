@@ -1,0 +1,22 @@
+input{
+
+}
+label{
+    display: block;
+    color: #0000bf;
+    font-weight: 700;
+}
+#submit{
+font-weight: 700;
+    background-color: #9acfea;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+}
+.error{
+    color:#ff0000;
+}
+.correct{
+    color:#00bf00;
+    font-weight: 700;
+}
