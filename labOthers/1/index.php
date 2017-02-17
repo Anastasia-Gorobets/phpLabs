@@ -7,7 +7,7 @@
 <body>
 <?php
 /*
- * Избять все email-адреса с текста
+ * Изьять все email-адреса с текста
  */
 $filename = "LR5_task05.htm";
 $handle = fopen($filename, "r");
