@@ -12,23 +12,31 @@ class TextProcessing
 
     private function getSentensesFromText()
     {
-        return explode('.', $this->text);
+        $arr= explode('.', $this->text);
+        foreach ($arr as $key=>$item) {
+            if(empty($item)){
+                unset($arr[$key]);
+            }
+
+        }
+        return $arr;
     }
 
     private function countSentenses()
     {
         $sentences = $this->getSentensesFromText();
-        return "<span>Количество предложений в тексте:</span>" . (count($sentences) - 1) . "<br>";
+        return "<span>Количество предложений в тексте:</span>" . (count($sentences)) . "<br>";
     }
 
     private function countWords()
     {
-        $wordCounts = 0;
-        $sentenses = $this->getSentensesFromText();
-        foreach ($sentenses as $key => $sent) {
-            if ($key == (count($sentenses) - 1)) break;
-            $wordCounts += count(explode(" ", trim($sent)));
+        $arr=preg_split('/[\s,.;]/',$this->text);
+        foreach ($arr as $key=>$item) {
+            if(empty($item)){
+                unset($arr[$key]);
+            }
         }
+        $wordCounts=count($arr);
         return "<span>Количество слов в текcте:</span>$wordCounts<br>";
     }
 
