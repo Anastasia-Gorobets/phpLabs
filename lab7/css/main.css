@@ -20,3 +20,14 @@ font-weight: 700;
     color:#00bf00;
     font-weight: 700;
 }
+#passwordInfo{
+    padding: 5px;
+    background-color: #000000;
+}
+.star{
+    color: #ff0000;
+}
+.tooltip{
+    color:#0000bf;
+    font-weight: 700;
+}
