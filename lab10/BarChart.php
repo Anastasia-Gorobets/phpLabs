@@ -15,7 +15,6 @@ class BarChart
     private $index = array();
     private $curel = 0;
     private $leftmarg = 3;
-
     function __construct($width, $height, $title, $tbmargin = 25, $padding = 5)
     {
         $this->height = $height;
@@ -37,7 +36,6 @@ class BarChart
             'brown' => imagecolorallocate($this->image, 0xCC, 0x66, 0x33)
         );
     }
-
     function addBar($name, $value, $color)
     {
         if (!array_key_exists($color, $this->colorcodes)) {
@@ -50,19 +48,16 @@ class BarChart
         $this->curel++;
         return TRUE;
     }
-
     function addColor($name, $hex1, $hex2, $hex3)
     {
         $this->colorcodes[$name] = imagecolorallocate($this->image, $hex1, $hex2, $hex3);
     }
-
     function showBars()
     {
         print_r($this->names);
         echo "\n";
         print_r($this->values);
     }
-
     function make()
     {
         //Figure out value
@@ -72,14 +67,12 @@ class BarChart
         $ysize = $this->height - (2 * $this->margin_topbottom); //Height of bar content
         $xsize = ($nv * $cwidth) + ($this->padding * ($nv + 1)); //Width of bar content
         $ysteps = $ysize / $mx;
-
         //Set title
         $txtsz = imagefontwidth(3) * strlen($this->title);
         $xpos = (int)($this->margin_topbottom + ($xsize - $txtsz) / 2);
         $xpos = max(1, $xpos); //Force positive
         $ypos = 3; //From top
         imagestring($this->image, 3, $xpos, $ypos, $this->title, $this->colorcodes['black']);
-
         //Label x-axis
         $labelfont = 2;
         for ($i = 0; $i < $nv; $i++) {
@@ -93,13 +86,11 @@ class BarChart
 
             imagerectangle($this->image, $wherexstart - 1, $whereytop - 1, $wherexend + 1, $whereybottom + 1, $this->colorcodes['black']);
             imagefilledrectangle($this->image, $wherexstart, $whereytop, $wherexend, $whereybottom, $this->colorcodes[$this->colors[$idx]]);
-
             //Print y values
             $txtsz = imagefontwidth(2) * strlen($yval);
             $xpos = $wherexstart + (int)(($cwidth - $txtsz) / 2);
             $ypos = $whereytop + ($whereytop > ($this->height / 2) ? -imagefontheight(2) - 3 : imagefontheight(2) + 3);
             imagestring($this->image, 2, $xpos, $ypos, $yval, ($this->colors[$idx] == 'black' ? $this->colorcodes['white'] : $this->colorcodes['black']));
-
             //Labels
             $txtsz = imagefontwidth($labelfont) * strlen($xval);
             $xpos = $wherexstart + (int)(($cwidth - $txtsz) / 2);
@@ -109,11 +100,8 @@ class BarChart
             imagestring($this->image, $labelfont, $xpos, $ypos, $xval, $this->colorcodes['black']);
         }
     }
-
     function makegif($file)
     {
         imagegif($this->image, $file);
     }
 }
-
-;
