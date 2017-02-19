@@ -1,0 +1,10 @@
+.error{
+    color: #ff0000;
+}
+.result{
+    padding: 10px;
+    display: inline-block;
+    color: #0000aa;
+    font-weight: 700;
+    border: 1px solid #0000aa;
+}
