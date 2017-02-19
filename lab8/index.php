@@ -10,6 +10,9 @@
 </head>
 <body>
 <?php
+require_once '../lab4/LabInfo.php';
+$labInfo=new LabInfo();
+$labInfo->printInfo(8,"Файли","02-19-2017","Прочитати зміст файлу. Якщо рядок починається з S, то вивести його посимвольно");
 if(isset($_REQUEST['send'])){
     $text="";
     $res="";
