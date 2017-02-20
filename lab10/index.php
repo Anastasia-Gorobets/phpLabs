@@ -24,7 +24,6 @@ if (isset($_COOKIE['count'])) {
 }
 //Testing data
 $arr[$date] = $count;
-$arr["20-02-2017"] = 5;
 $arr["21-02-2017"] = 1;
 $arr["22-02-2017"] = 2;
 $arr["23-02-2017"] = 8;
