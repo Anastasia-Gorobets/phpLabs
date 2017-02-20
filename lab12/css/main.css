@@ -1,0 +1,24 @@
+table, th, td {
+    border: 1px solid #000000;
+
+}
+table{
+    border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+}
+th{
+    background-color: #FFE0E1;
+}
+.pHeader{
+    font-weight: 600;
+}
+
+#lab12Form{
+    margin-top: 40px;
+}
+#OkButton{
+    background-color: #f8b9b7;
+    width: 5%;
+
+}
