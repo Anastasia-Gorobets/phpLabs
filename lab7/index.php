@@ -16,33 +16,41 @@ $labInfo=new LabInfo();
 $labInfo->printInfo("7","Робота з формами","02-17-2017","Розробити форму, яка обробляє введені користувачем дані. Пароль: від 7-ми до 10ти символів, має містити заголовну літеру. Логін не можна вводити двічі.");
 if(isset($_REQUEST['submit'])){
     $password1=$_REQUEST['password'];
-    $password2=$_REQUEST['password'];
+    $password2=$_REQUEST['password2'];
     $login=$_REQUEST['login'];
-    if($password1 ==  $password2){
-               if($login == $password1){
-                   echo  "Login one time!<br>";
-               }else {
-                   $arr = str_split($password1);
-                   $numberCount = 0; //count of numbers
-                   $upperFlag = false; //flag for Upper symbol
-                   $countFlag = false; //count
-                   foreach ($arr as $a) {
-                       if (is_numeric($a)) $numberCount++;
-                       else {
-                           if (strtoupper($a) == $a) {
-                               $upperFlag = true;
-                           }
-                       }
-                   }
-                   $symbolCount = count($arr);
-                   if ($symbolCount > 7 && $symbolCount <= 10) $countFlag = true;
-                   if ($numberCount >= 2 && $upperFlag && $countFlag) {
-                       echo "<div class='correct'>All is correct!</div><br>";
-                   }
-               }
-            }else{
-        echo "<div class='error'>The password must be the same</div><br>";
+    if(empty($login) || empty($password2) || empty($password2)){
+         echo "<div class='error'>You must fill all fields!</div><br>";
+    }else{
+        if($password1 ==  $password2){
+            if($login == $password1){
+                echo  "<div class='error'>Login must be one time!</div><br>";
+            }else {
+                $arr = str_split($password1);
+                $numberCount = 0; //count of numbers
+                $upperFlag = false; //flag for Upper symbol
+                $countFlag = false; //count
+                foreach ($arr as $a) {
+                    if (is_numeric($a)) $numberCount++;
+                    else {
+                        if (strtoupper($a) == $a) {
+                            $upperFlag = true;
+                        }
+                    }
+                }
+                $symbolCount = count($arr);
+                if ($symbolCount > 7 && $symbolCount <= 10) $countFlag = true;
+                if(!$numberCount) echo "<div class='error'>The password should consist of two digits at least</div><br>";
+                if(!$upperFlag) echo "<div class='error'>The password should consist of one upper symbol at least</div><br>";
+                if(!$countFlag) echo "<div class='error'>The password should consist of symbols between 7 and 10</div><br>";
+                if ($numberCount >= 2 && $upperFlag && $countFlag) {
+                    echo "<div class='correct'>All is correct!</div><br>";
+                }
+            }
+        }else{
+            echo "<div class='error'>The password must be the same</div><br>";
+        }
     }
+
 
             }
 
