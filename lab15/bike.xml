@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<bikes>
+    <bike>
+        <model>First</model>
+        <speedNumber>4</speedNumber>
+        <sizes>100</sizes>
+        <amount>100</amount>
+    </bike>
+    <bike>
+        <model>Second</model>
+        <speedNumber>3</speedNumber>
+        <sizes>300</sizes>
+        <amount>150</amount>
+    </bike>
+    <bike>
+        <model>Third</model>
+        <speedNumber>4</speedNumber>
+        <sizes>300</sizes>
+        <amount>300</amount>
+    </bike>
+</bikes>
+
