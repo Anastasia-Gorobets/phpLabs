@@ -29,6 +29,8 @@ if (isset($_REQUEST['send'])) {
                 foreach ($arr as $a) {
                     $res .= $a . "  ";
                 }
+                //str_replace($res[strlen($res)-1],'');
+                trim($res);
                 $res .= "<br>";
             }
         }

@@ -13,7 +13,7 @@
 require_once '../lab4/LabInfo.php';
 $labInfo=new LabInfo();
 $labInfo->printInfo(9,"FTP","02-19-2017","Перевірити наявність на ftp сервері папки TEST. Якщо вона існує,то видалили її, якщо ні - створити");
-$host="s52.ucoz.net";
+$host="ftp://2nastya-gorobets@s52.ucoz.net/";
 $handle= ftp_connect($host);
 if($handle){
     $name="2nastya-gorobets";

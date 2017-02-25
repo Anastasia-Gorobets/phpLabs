@@ -55,10 +55,6 @@ if(isset($_REQUEST['submit'])){
             }
 
 ?>
-
-
-
-
 <form action="" method="get">
     <label for="login"><span class="star">* </span>Login:</label>
     <input type="text" name="login" id="name"><br>
@@ -78,7 +74,6 @@ if(isset($_REQUEST['submit'])){
         });
 
         $("#passwordInfo").click(function () {
-
 
         });
     });
