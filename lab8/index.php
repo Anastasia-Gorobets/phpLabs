@@ -10,58 +10,49 @@
 </head>
 <body>
 <?php
-require_once '../lab4/LabInfo.php';
-$labInfo = new LabInfo();
-$labInfo->printInfo(8, "Файли", "02-19-2017", "Прочитати зміст файлу. Якщо рядок починається з S, то вивести його посимвольно");
-if (isset($_REQUEST['send'])) {
-    $text = "";
-    $res = "";
-    $filename = $_REQUEST['fileName'];
-    if (file_exists($filename)) {
-        $file = fopen($filename, "r");
-        $buffer = [];
-        while (!feof($file)) {
-            $buffer[] = fgets($file);
-        }
-
-        foreach ($buffer as $buf) {
-            $text .= $buf . '<br>';
-            if ($buf[0] === 'S') {
-                $arr = implode(' ', str_split($buf));
-                $res .= $arr . "<br>";
+    require_once '../lab4/LabInfo.php';
+    $labInfo = new LabInfo();
+    $labInfo->printInfo(8, "Файли", "02-19-2017", "Прочитати зміст файлу. Якщо рядок починається з S, то вивести його посимвольно");
+    $exists = false;
+    if (isset($_REQUEST['send'])) {
+        $res = '';
+        $filename = $_REQUEST['fileName'];
+        $exists = file_exists($filename);
+        if ($exists) {
+            $file = fopen($filename, 'r');
+            $buffer = [];
+            while (!feof($file)) {
+                $buffer[] = fgets($file);
             }
-        }
-        $res = "<span>Result is :</span> <br> $res <br>";
-        $text = "<span>Text in file :</span> <br> $text  <br>";
 
-        fclose($file);
-    } else {
-        echo "<span class='error'>$filename file  not found</span><br>";
+            foreach ($buffer as $buf) {
+                if ($buf[0] === 'S') {
+                    $split = implode(' ', str_split($buf));
+                    $res .= $split . '<br>';
+                }
+            }
+
+            $text = implode('<br>', $buffer);
+
+            fclose($file);
+        } else {
+            echo "<span class='error'>$filename file  not found</span><br>";
+        }
     }
-}
 ?>
 <form action="">
     <input type="text" name="fileName" id="fileName" placeholder="Enter file name">
     <input type="submit" id="send" name="send" value="Send">
 </form>
-<?php if (!empty($text) && !empty($res)) { ?>
+<?php if ($exists) { ?>
     <div class="result">
-        <?= $text ?>
+        <span>Text in file :</span> <br> <?= $text ?> <br>
     </div>
 
     <div class="result">
-        <?= $res ?>
+        <span>Result is :</span> <br> <?= $res ?> <br>
     </div>
     <?php
 } ?>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
