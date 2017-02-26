@@ -20,8 +20,10 @@ if (isset($_REQUEST['send'])) {
     if (file_exists($filename)) {
         $file = fopen($filename, "r");
         $buffer = [];
-        while (!feof($file))
+        while (!feof($file)) {
             $buffer[] = fgets($file);
+        }
+
         foreach ($buffer as $buf) {
             $text .= $buf . "<br>";
             if ($buf[0] == "S") {
@@ -30,7 +32,6 @@ if (isset($_REQUEST['send'])) {
                     $res .= $a . "  ";
                 }
                 //str_replace($res[strlen($res)-1],'');
-                trim($res);
                 $res .= "<br>";
             }
         }
