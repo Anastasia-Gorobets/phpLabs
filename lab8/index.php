@@ -25,14 +25,10 @@ if (isset($_REQUEST['send'])) {
         }
 
         foreach ($buffer as $buf) {
-            $text .= $buf . "<br>";
-            if ($buf[0] == "S") {
-                $arr = str_split($buf);
-                foreach ($arr as $a) {
-                    $res .= $a . "  ";
-                }
-                //str_replace($res[strlen($res)-1],'');
-                $res .= "<br>";
+            $text .= $buf . '<br>';
+            if ($buf[0] === 'S') {
+                $arr = implode(' ', str_split($buf));
+                $res .= $arr . "<br>";
             }
         }
         $res = "<span>Result is :</span> <br> $res <br>";
