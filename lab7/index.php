@@ -67,14 +67,9 @@ if(isset($_REQUEST['submit'])){
 </form>
 <script>
     $(function() {
-
         new jBox('Tooltip', {
             attach: '.tooltip',
             adjustPosition: true
-        });
-
-        $("#passwordInfo").click(function () {
-
         });
     });
 </script>
